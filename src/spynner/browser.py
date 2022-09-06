@@ -456,7 +456,7 @@ class Browser(object):
         if res.type() != res.Map:
             return False
         resmap = res.toMap()
-        lenfield = QString(u'length')
+        lenfield = u'length'
         if lenfield not in resmap:
             return False
         if resmap[lenfield].type() == resmap[lenfield].Double:
