@@ -34,7 +34,7 @@ import os
 from six import BytesIO as StringIO
 
 import pkg_resources
-import autopy
+#import autopy
 
 try:
     from PySide import QtCore
@@ -796,6 +796,7 @@ class Browser(object):
             self._events_loop(0)
             self.application.processEvents()
             self.application.processEvents()"""
+        raise ValueError("autopy stripped out in this version of spynner")
         autopy.mouse.click()
         try:
             self._events_loop(0.05)
