@@ -50,7 +50,7 @@ try:
 except Exception as e:
     HAS_PYSIDE = False
     from PyQt4 import QtCore
-    from PyQt4.QtCore import SIGNAL, QUrl, QString, Qt, QEvent
+    from PyQt4.QtCore import SIGNAL, QUrl, Qt, QEvent
     from PyQt4.QtCore import QSize, QDateTime, QPoint
     from PyQt4.QtGui import QApplication, QImage, QPainter
     from PyQt4.QtGui import QCursor, QMouseEvent, QKeyEvent
@@ -649,7 +649,7 @@ class Browser(object):
         """
         element = self.webframe.findFirstElement(selector)
         element.setFocus()
-        eventp = QKeyEvent(QEvent.KeyPress, Qt.Key_A, keyboard_modifiers, QString(text))
+        eventp = QKeyEvent(QEvent.KeyPress, Qt.Key_A, keyboard_modifiers, str(text))
         self.application.sendEvent(self.webview, eventp)
         self._events_loop(timeout)
         self.wait_requests(wait_requests)
@@ -1538,7 +1538,7 @@ def toString(s):
     if HAS_PYSIDE:
         if isinstance(s, six.string_types):
             return s
-    if isinstance(s, QString):
+    if isinstance(s, str):
         return u"%s" % s
     return s.toString()
 
